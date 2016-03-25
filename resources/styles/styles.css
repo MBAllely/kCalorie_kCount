@@ -2,11 +2,21 @@ body {
   background-image: url("http://www.themesltd.com/backgrounds/food/hot_pizza_slices.png");
 }
 select {
-  padding-bottom: 10px;
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  margin-bottom: 5px;
 }
 
 .jumbotron {
   text-align: center;
+  color: white;
+  background-image: url("http://res.cloudinary.com/nwebkart-com/image/upload/v1437746361/grocery_store_provider_in_india_e8xljj.jpg");
+  background-size: cover;
 }
 
 .meal-form {
