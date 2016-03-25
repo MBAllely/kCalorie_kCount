@@ -26,7 +26,8 @@ export class AppComponent {
       new Meal("Sandwich", "Whole grain bread, Cucumbers, mushrooms, avocado, hummus, bell peppers, mayonnaise, red onions, and spinach", 500),
       new Meal("Pasta", "Fusilli pasta with pesto sauce", 315),
       new Meal("Curry Soup", "Sweet potato curry with broccoli and potatoes", 275),
-      new Meal("Snack veggies", "Apple slices, celery sticks, carrots, and peanut butter", 250)
+      new Meal("Snack veggies", "Apple slices, celery sticks, carrots, and peanut butter", 250),
+      new Meal("GUAC ATTACK", "Avocado baby", 400)
     ];
   }
 }
