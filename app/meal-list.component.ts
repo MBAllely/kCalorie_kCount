@@ -3,18 +3,18 @@ import { Meal } from './meal.model';
 import { MealComponent } from './meal.component';
 import { NewMealComponent } from './new-meal.component';
 import { EditMealComponent } from './edit-meal.component';
-import { HighCaloriesPipe } from './high-calories.pipe';
+import { CaloriesPipe } from './calories.pipe';
 
 @Component({
   selector: 'meal-list',
   inputs: ['mealList'],
   outputs: ['onMealSelect'],
-  pipes: [HighCaloriesPipe],
+  pipes: [CaloriesPipe],
   directives: [MealComponent, NewMealComponent, EditMealComponent],
   template: `
     <div class="row">
       <select (change)="onChange($event.target.value)" class="filter">
-        <option value="all">Show All</option>
+        <option value="all" selected>Show All</option>
         <option value="high">Show High Calorie Meals</option>
         <option value="low">Show Low Calorie Meals</option>
       </select>
@@ -22,7 +22,7 @@ import { HighCaloriesPipe } from './high-calories.pipe';
     <div class="row">
       <div class="col-sm-8">
         <meal-display
-          *ngFor="#currentMeal of mealList"
+          *ngFor="#currentMeal of mealList | findHigh:filter"
           [meal]="currentMeal"
           class="list-group-item row"
           (click)="mealToEdit(currentMeal)"
@@ -42,6 +42,7 @@ export class MealListComponent{
   public mealList: Meal[];
   public onMealSelect: EventEmitter<Meal>;
   public selectedMeal: Meal;
+  public filterHigh: string = "high";
   constructor() {
     this.onMealSelect = new EventEmitter();
   }
@@ -52,6 +53,10 @@ export class MealListComponent{
   mealToEdit(clickedMeal: Meal) {
     this.selectedMeal = clickedMeal;
     this.onMealSelect.emit(clickedMeal);
+  }
+  onChange(filterOption) {
+    this.filterHigh = filterOption;
+
   }
 
 }
