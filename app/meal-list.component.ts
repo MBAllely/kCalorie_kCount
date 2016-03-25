@@ -3,13 +3,22 @@ import { Meal } from './meal.model';
 import { MealComponent } from './meal.component';
 import { NewMealComponent } from './new-meal.component';
 import { EditMealComponent } from './edit-meal.component';
+import { HighCaloriesPipe } from './high-calories.pipe';
 
 @Component({
   selector: 'meal-list',
   inputs: ['mealList'],
   outputs: ['onMealSelect'],
+  pipes: [HighCaloriesPipe],
   directives: [MealComponent, NewMealComponent, EditMealComponent],
   template: `
+    <div class="row">
+      <select (change)="onChange($event.target.value)" class="filter">
+        <option value="all">Show All</option>
+        <option value="high">Show High Calorie Meals</option>
+        <option value="low">Show Low Calorie Meals</option>
+      </select>
+    </div>
     <div class="row">
       <div class="col-sm-8">
         <meal-display

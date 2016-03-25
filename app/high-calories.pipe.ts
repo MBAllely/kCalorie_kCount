@@ -6,7 +6,7 @@ import { Meal } from './meal.model';
   pure: false
 })
 
-export class CaloriesPipe implements PipeTransform {
+export class HighCaloriesPipe implements PipeTransform {
   transform(input: Meal) {
     return input.getCalories() > 300;
   }
