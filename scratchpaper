@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-8">
+    <meal-display
+      *ngFor="#currentMeal of mealList"
+      [meal]="currentMeal"
+      class="list-group-item row">
+    </meal-display>
+    <div class="col-sm-4">
+      <new-meal (onSubmitNewMeal)="addMeal($event)"></new-meal>
+    </div>
+  </div>
+</div>
