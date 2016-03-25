@@ -22,7 +22,7 @@ import { CaloriesPipe } from './calories.pipe';
     <div class="row">
       <div class="col-sm-8">
         <meal-display
-          *ngFor="#currentMeal of mealList | findHigh:filter"
+          *ngFor="#currentMeal of mealList | calorieSorter:filter"
           [meal]="currentMeal"
           class="list-group-item row"
           (click)="mealToEdit(currentMeal)"
@@ -42,7 +42,7 @@ export class MealListComponent{
   public mealList: Meal[];
   public onMealSelect: EventEmitter<Meal>;
   public selectedMeal: Meal;
-  public filterHigh: string = "high";
+  public filter: string = "all";
   constructor() {
     this.onMealSelect = new EventEmitter();
   }
@@ -55,7 +55,7 @@ export class MealListComponent{
     this.onMealSelect.emit(clickedMeal);
   }
   onChange(filterOption) {
-    this.filterHigh = filterOption;
+    this.filter = filterOption;
 
   }
 
