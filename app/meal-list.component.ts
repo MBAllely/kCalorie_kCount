@@ -11,34 +11,7 @@ import { CaloriesPipe } from './calories.pipe';
   outputs: ['onMealSelect'],
   pipes: [CaloriesPipe],
   directives: [MealComponent, NewMealComponent, EditMealComponent],
-  template: `
-    <div class="row">
-      <select (change)="onChange($event.target.value)" class="filter">
-        <option value="all" selected>Show All</option>
-        <option value="high">Show High Calorie Meals</option>
-        <option value="low">Show Low Calorie Meals</option>
-      </select>
-    </div>
-    <div class="row">
-      <div class="col-sm-8">
-        <meal-display
-          *ngFor="#currentMeal of mealList | calorieSorter:filter"
-          [meal]="currentMeal"
-          class="list-group-item row"
-          (click)="mealToEdit(currentMeal)"
-          [class.active]="currentMeal === selectedMeal"
-          (onMealSelect)="mealToEdit($event)">
-        </meal-display>
-      </div>
-      <div class="col-sm-4">
-        <new-meal (onSubmitNewMeal)="addMeal($event)"></new-meal>
-      </div>
-      <hr>
-    </div>
-    <div class="row">
-      <edit-meal *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal>
-    </div>
-  `
+  templateUrl: 'app/meal-list.component.html'
 })
 
 export class MealListComponent{
