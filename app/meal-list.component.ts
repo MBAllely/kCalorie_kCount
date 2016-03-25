@@ -18,5 +18,10 @@ import { NewMealComponent } from './new-meal.component';
 })
 
 export class MealListComponent{
-
+  public mealList: Meal[];
+  addMeal(name: string, details: string, calories: number) {
+    this.mealList.push(
+      new Meal(name, details, calories)
+    );
+  }
 }
