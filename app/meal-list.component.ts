@@ -29,10 +29,10 @@ import { CaloriesPipe } from './calories.pipe';
           [class.active]="currentMeal === selectedMeal"
           (onMealSelect)="mealToEdit($event)">
         </meal-display>
+        <edit-meal *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal>
       </div>
       <div class="col-sm-4">
         <new-meal (onSubmitNewMeal)="addMeal($event)"></new-meal>
-        <edit-meal *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal>
       </div>
     </div>
   `

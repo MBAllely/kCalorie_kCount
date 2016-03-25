@@ -7,6 +7,9 @@ import { MealComponent } from './meal.component';
   inputs: ['meal'],
   template: `
     <div class="meal-form form-inline">
+    <h2>{{ meal.name }}</h2>
+    <h5> Details: {{ meal.details }}</h5>
+    <h5> Calories: {{ meal.calories }}</h5>
     <h3>Edit Meal: </h3>
       <input [(ngModel)]="meal.name" type="text" class="form-control input-lg">
       <input [(ngModel)]="meal.details" type="text" class="form-control input-lg">

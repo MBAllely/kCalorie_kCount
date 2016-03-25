@@ -1,10 +1,24 @@
 <div class="row">
+  <select (change)="onChange($event.target.value)" class="filter">
+    <option value="all" selected>Show All</option>
+    <option value="high">Show High Calorie Meals</option>
+    <option value="low">Show Low Calorie Meals</option>
+  </select>
+</div>
+<div class="row">
   <div class="col-sm-8">
     <meal-display
-      *ngFor="#currentMeal of mealList"
+      *ngFor="#currentMeal of mealList | calorieSorter:filter"
       [meal]="currentMeal"
-      class="list-group-item row">
+      class="list-group-item row"
+      (click)="mealToEdit(currentMeal)"
+      [class.active]="currentMeal === selectedMeal"
+      (onMealSelect)="mealToEdit($event)"
+      *ngIf="selectedMeal" [meal]="meal"><br>
+        Notes: {{ meal.details }} <br>
+        Calories: {{ meal.calories }}
     </meal-display>
+    <edit-meal *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal>
   </div>
   <div class="col-sm-4">
     <new-meal (onSubmitNewMeal)="addMeal($event)"></new-meal>
