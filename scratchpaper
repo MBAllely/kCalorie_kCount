@@ -5,8 +5,8 @@
       [meal]="currentMeal"
       class="list-group-item row">
     </meal-display>
-    <div class="col-sm-4">
-      <new-meal (onSubmitNewMeal)="addMeal($event)"></new-meal>
-    </div>
+  </div>
+  <div class="col-sm-4">
+    <new-meal (onSubmitNewMeal)="addMeal($event)"></new-meal>
   </div>
 </div>
