@@ -7,6 +7,7 @@ import { EditMealComponent } from './edit-meal.component';
 @Component({
   selector: 'meal-list',
   inputs: ['mealList'],
+  outputs: ['onMealSelect'],
   directives: [MealComponent, NewMealComponent, EditMealComponent],
   template: `
     <div class="row">
@@ -15,6 +16,7 @@ import { EditMealComponent } from './edit-meal.component';
           *ngFor="#currentMeal of mealList"
           [meal]="currentMeal"
           class="list-group-item row"
+          (click)="mealToEdit(currentMeal)"
           [class.active]="currentMeal === selectedMeal"
           (onMealSelect)="mealToEdit($event)">
         </meal-display>
@@ -29,13 +31,18 @@ import { EditMealComponent } from './edit-meal.component';
 
 export class MealListComponent{
   public mealList: Meal[];
+  public onMealSelect: EventEmitter<Meal>;
   public selectedMeal: Meal;
+  constructor() {
+    this.onMealSelect = new EventEmitter();
+  }
   addMeal(values) {
     var meal = new Meal(values[0], values[1], values[2]);
     this.mealList.push(meal);
   }
-  mealToEdit(selectedMeal: Meal) {
-    this.selectedMeal = selectedMeal;
+  mealToEdit(clickedMeal: Meal) {
+    this.selectedMeal = clickedMeal;
+    this.onMealSelect.emit(clickedMeal);
     console.log(this.selectedMeal);
   }
 
