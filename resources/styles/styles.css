@@ -1,3 +1,17 @@
-h1 {
-  color: blue;
+body {
+  background-image: url("http://www.themesltd.com/backgrounds/food/hot_pizza_slices.png");
+}
+select {
+  padding-bottom: 10px;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+.meal-form {
+  margin-top: 10px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
 }
