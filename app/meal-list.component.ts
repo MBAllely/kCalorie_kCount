@@ -43,7 +43,6 @@ export class MealListComponent{
   mealToEdit(clickedMeal: Meal) {
     this.selectedMeal = clickedMeal;
     this.onMealSelect.emit(clickedMeal);
-    console.log(this.selectedMeal);
   }
 
 }
