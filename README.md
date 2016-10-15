@@ -4,7 +4,7 @@
 
 #### By Marika Allely
 
-![kcalorie](https://cloud.githubusercontent.com/assets/13214521/19405792/b673d302-9230-11e6-9374-c0da9f347ce3.png)
+![kcalorie 1](https://cloud.githubusercontent.com/assets/13214521/19405820/df4081c2-9230-11e6-811b-dd847e26d9da.png)
 
 ## Description
 
