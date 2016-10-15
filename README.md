@@ -4,6 +4,8 @@
 
 #### By Marika Allely
 
+![kcalorie](https://cloud.githubusercontent.com/assets/13214521/19405792/b673d302-9230-11e6-9374-c0da9f347ce3.png)
+
 ## Description
 
 _This web app is designed to track a user's meals for them_
